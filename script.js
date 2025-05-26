@@ -84,49 +84,12 @@ function calculateAverage() {
 }
 
 function editEstudiante(student, row) {
-    const index = students.indexOf(student);
-    if (index === -1) return;
+    editingStudent = student;
 
-    while (true) {
-        const newName = prompt("Editar nombre:", student.name)?.trim();
-        if (newName === null) return;
-
-        const newLastName = prompt("Editar apellido:", student.lastName)?.trim();
-        if (newLastName === null) return;
-
-        const newDate = prompt("Editar fecha:", student.date)?.trim();
-        if (newDate === null) return;
-
-        const newGradeInput = prompt("Editar nota (1 a 7):", student.grade);
-        if (newGradeInput === null) return;
-
-        const newGrade = parseFloat(newGradeInput);
-        const errors = [];
-
-        if (!newName) errors.push("Nombre no puede estar vacío.");
-        if (!newLastName) errors.push("Apellido no puede estar vacío.");
-        if (!newDate) errors.push("Fecha no puede estar vacía.");
-        if (isNaN(newGrade) || newGrade < 1 || newGrade > 7) {
-            errors.push("Nota debe ser un número entre 1 y 7.");
-        }
-
-        if (errors.length === 0) {
-            student.name = newName;
-            student.lastName = newLastName;
-            student.date = newDate;
-            student.grade = newGrade;
-
-            row.querySelector(".name-column").textContent = newName;
-            row.querySelector(".lastName-column").textContent = newLastName;
-            row.querySelector(".date-column").textContent = newDate;
-            row.querySelector(".grade-column").textContent = newGrade;
-
-            calculateAverage();
-            break;
-        } else {
-            alert("Errores:\n" + errors.join("\n"));
-        }
-    }
+    document.getElementById("name").value = student.name;
+    document.getElementById("lastName").value = student.lastName;
+    document.getElementById("date").value = student.date;
+    document.getElementById("grade").value = student.grade;
 }
 
 function calculateAverage() {
