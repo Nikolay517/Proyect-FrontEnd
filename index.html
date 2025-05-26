@@ -23,12 +23,14 @@
     </div>
     <div>
         <label for="fecha">Fecha: </label>
-        <input type="date" id="fecha" required>
+        <input type="date" id="date" required>
     </div>
     <div>
         <label for="grade">Calificacion (1.0 - 7.0): </label>
         <input type="number" id="grade" step="0.1" min="1" max="7" required>
     </div>
+    <div id="average"></div>
+    <div id="stats"></div> 
     <button type="submit">Guardar Alumno</button>
 </form>
 <table id="studentsTable" border="1" cellpadding="8" cellspacing="0">
